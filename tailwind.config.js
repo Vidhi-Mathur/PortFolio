@@ -2,21 +2,7 @@
 module.exports = {
 content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {
-        keyframes: {
-            "bounce-effect": {
-                '0%, 100%': { 
-                    transform: 'translateY(0)'
-                },
-                '50%': {
-                    transform: 'translateY(-20px)'
-                }
-            }
-        },
-        animation: {
-            "bounce-effect": "bounce-effect 2s infinite"
-        }
-    },
+    extend: { }
   },
   plugins: [
     function({addUtilities}) {
