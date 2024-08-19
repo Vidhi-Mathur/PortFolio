@@ -27,7 +27,7 @@ const NavigationBar = () => {
         <>
             <button onClick={toggleNavigationBar} className="fixed right-8 top-12 md:hidden" ><MenuIcon sx={{ color: 'white', fontSize: 28 }} /></button>
             {/* Small screen */}
-            <nav className={`fixed top-0 left-0 w-full h-full bg-black text-white rounded-lg bg-opacity-30 backdrop-blur-sm transform ${isOpen? 'translate-x-0': 'translate-x-full'} transition-transform duration-300 ease-in-out md:hidden flex justify-center items-center`}>
+            <nav className={`fixed top-0 left-0 w-full h-full bg-black text-white rounded-lg bg-opacity-30 backdrop-blur-sm transform ${isOpen? 'translate-x-0': 'translate-x-full'} transition-transform duration-300 ease-in-out md:hidden flex justify-center items-center z-10`}>
                 <div className="flex flex-col items-center space-y-8 mb-56">
                     <NavLink to="/" className={({isActive}) => `block px-6 py-2 rounded-full ${isActive ? 'bg-violet-900 font-semibold' : ''}`} onClick={toggleNavigationBar}>Home</NavLink>
                     <NavLink to="/about" className={({isActive}) => `block px-6 py-2 rounded-full ${isActive ? 'bg-violet-700 font-semibold' : ''}`} onClick={toggleNavigationBar}>About</NavLink>
