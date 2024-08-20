@@ -17,35 +17,64 @@ import MongoDB from "../../assets/skills/MongoDB.svg"
 import Git from "../../assets/skills/Git.svg"
 import Postman from "../../assets/skills/Postman.svg"
 
-export const langauageAndScriptingSkills = [
-        { name: 'HTML', icon: HTML },
-        { name: 'CSS', icon: CSS},
-        { name: 'Javascript', icon: Javascript},
-        { name: 'Java', icon: Java},
+const langauageAndScriptingSkills = [
+    { name: 'HTML', icon: HTML },
+    { name: 'CSS', icon: CSS},
+    { name: 'Javascript', icon: Javascript},
+    { name: 'Java', icon: Java},
 ]
 
-export const libraryAndFrameworkSkills = [
-        { name: 'Bootstrap', icon: Bootstrap},
-        { name: 'ReactJS', icon: ReactJS },
-        { name: 'React Router Dom', icon: ReactRouterDom },
-        { name: 'Redux', icon: Redux },
-        { name: 'NextJS', icon: NextJS },
-        { name: 'Material UI', icon: MaterialUI},
-        { name: 'Tailwind CSS', icon: TailwindCSS},
-        { name: 'Framer Motion', icon: FramerMotion },
+const libraryAndFrameworkSkills = [
+    { name: 'Bootstrap', icon: Bootstrap},
+    { name: 'ReactJS', icon: ReactJS },
+    { name: 'React Router Dom', icon: ReactRouterDom },
+    { name: 'Redux', icon: Redux },
+    { name: 'NextJS', icon: NextJS },
+    { name: 'Material UI', icon: MaterialUI},
+    { name: 'Tailwind CSS', icon: TailwindCSS},
+    { name: 'Framer Motion', icon: FramerMotion },
 ]
 
-export const backendSkills = [
-        { name: 'NodeJS', icon: NodeJS},
-        { name: 'ExpressJS', icon: ExpressJS },
-        { name: 'Socket.io', icon: SocketIO },
+ const backendSkills = [
+    { name: 'NodeJS', icon: NodeJS},
+    { name: 'ExpressJS', icon: ExpressJS },
+    { name: 'Socket.io', icon: SocketIO },
 ]
 
-export const databaseSkills = [
-        { name: 'MongoDB', icon: MongoDB}
+ const databaseSkills = [
+    { name: 'MongoDB', icon: MongoDB}
 ]
 
-export const developerToolSkills = [
-        { name: 'Version Control', icon: Git},
-        { name: 'Postman', icon: Postman}
+ const developerToolSkills = [
+    { name: 'Version Control', icon: Git},
+    { name: 'Postman', icon: Postman}
 ]
+
+export const Skills = () => {
+    return (
+        <>
+        <h1 className="text-4xl sm:text:5xl md:text-6xl lg:text-7xl text-white font-semibold mt-64">Skills</h1>
+            <div className="space-y-8 mt-8">
+                    <SkillSection title="Languages and Scripting" skills={langauageAndScriptingSkills} />
+                    <SkillSection title="Libraries and Frameworks" skills={libraryAndFrameworkSkills} />
+                    <SkillSection title="Backend" skills={backendSkills} />
+                    <SkillSection title="Databases" skills={databaseSkills} />
+                    <SkillSection title="Developer Tools" skills={developerToolSkills} />
+            </div>
+        </>
+    )
+}
+
+const SkillSection = ({title, skills}) => {
+    return (
+        <div>
+        <p className="text-3xl sm:text:4xl md:text-5xl text-white font-semibold mb-4">{title}</p>
+            <div className="flex flex-wrap gap-5">
+                {skills.map(skill => (
+                    <span className="bg-white text-xl font-semibold px-6 py-1.5 rounded flex items-center justify-center gap-2"><img src={skill.icon} alt="alt" className="w-10 h-10 object-contain"/>{skill.name}</span>
+                ))}
+            </div>
+        </div>
+    )
+}
+
