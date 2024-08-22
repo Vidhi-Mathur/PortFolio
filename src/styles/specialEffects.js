@@ -28,3 +28,24 @@ export const bounceVariants = {
         ease: "easeInOut"
     }
 }
+
+//Elastic effect
+export const elasticVariants = {
+    hidden: {
+        opacity: 0,
+        scale: 0,
+    },
+    visible: (index) => ({
+        opacity: 1,
+        scale: 1,
+        transition: {
+            type: "spring",
+            stiffness: 400,
+            damping: 10,
+            delay: index * 0.1,
+        },
+    }),
+    hover: {
+        scale: 1.1
+    }
+};
