@@ -16,6 +16,9 @@ import SocketIO from "../../assets/skills/SocketIO.svg"
 import MongoDB from "../../assets/skills/MongoDB.svg"
 import Git from "../../assets/skills/Git.svg"
 import Postman from "../../assets/skills/Postman.svg"
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+import { elasticVariants } from "../../styles/specialEffects"
 
 const langauageAndScriptingSkills = [
     { name: 'HTML', icon: HTML },
@@ -66,15 +69,18 @@ export const Skills = () => {
 }
 
 const SkillSection = ({title, skills}) => {
+    const [ref, inView] = useInView({
+        triggerOnce: false,
+        threshold: 0.1
+    })
     return (
-        <div>
-        <p className="text-3xl sm:text:4xl md:text-5xl text-white font-semibold mb-4">{title}</p>
-            <div className="flex flex-wrap gap-5">
-                {skills.map(skill => (
-                    <span className="bg-white text-xl font-semibold px-6 py-1.5 rounded flex items-center justify-center gap-2"><img src={skill.icon} alt="alt" className="w-10 h-10 object-contain"/>{skill.name}</span>
+        <motion.div ref={ref}>
+        <p className="text-2xl sm:text:3xl md:text-4xl text-[#bdaee3] font-semibold mb-5 ">{title}</p>
+            <motion.div className="flex flex-wrap gap-5">
+                {skills.map((skill, index) => (
+                    <motion.span key={skill.name} className="bg-white text-xl font-semibold px-6 py-1.5 rounded flex items-center justify-center gap-2" initial="hidden" animate={inView? "visible": "hidden"} index={index} variants={elasticVariants} whileHover="hover"><img src={skill.icon} alt="alt" className="w-10 h-10 object-contain"/>{skill.name}</motion.span>
                 ))}
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     )
 }
-
