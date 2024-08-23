@@ -56,7 +56,7 @@ const libraryAndFrameworkSkills = [
 export const Skills = () => {
     return (
         <>
-        <h1 className="text-4xl sm:text:5xl md:text-6xl lg:text-7xl text-white font-semibold mt-64">Skills</h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-semibold mt-64">Skills</h1>
             <div className="space-y-8 mt-8">
                     <SkillSection title="Languages and Scripting" skills={langauageAndScriptingSkills} />
                     <SkillSection title="Libraries and Frameworks" skills={libraryAndFrameworkSkills} />
