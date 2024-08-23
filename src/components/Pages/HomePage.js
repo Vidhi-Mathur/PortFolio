@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { shimmerVariants, bounceVariants } from "../../styles/specialEffects"
 import { Skills } from "../UI/Skills"
+import { ProjectInfo } from "../UI/ProjectInfo"
 
 export const HomePage = () => {
     return (
@@ -9,6 +10,7 @@ export const HomePage = () => {
                 <motion.h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl text-white font-bold mb-4" animate={shimmerVariants.animate} transition={shimmerVariants.transition} style={shimmerVariants.style}>Hi! I'm Vidhi</motion.h1>
                 <motion.p className="text-3xl sm:text-4xl md:text-5xl  text-[#9374e8] opacity-80" animate={bounceVariants.animate} transition={bounceVariants.transition}>A FULLSTACK DEVELOPER</motion.p>
                 <Skills />
+                <ProjectInfo />
             </div>
         </>
     )
