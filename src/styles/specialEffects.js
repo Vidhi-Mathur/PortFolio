@@ -49,3 +49,23 @@ export const elasticVariants = {
         scale: 1.1
     }
 };
+
+//Flip effect
+export const flipVariants = {
+    initial: {
+        rotateY: 90
+    },
+    animate: {
+        rotateY: 0
+    },
+    exit: {
+        rotateY: -90
+    },
+    transition: {
+        duration: 0.4
+    },
+    style: { 
+        transformStyle: 'preserve-3d',
+        backfaceVisibility: 'hidden' 
+    }
+}
