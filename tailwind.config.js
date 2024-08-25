@@ -4,6 +4,7 @@ content: ["./src/**/*.{html,js}"],
   theme: {
     extend: { }
   },
+  darkMode: "class",
   plugins: [
     function({addUtilities}) {
         const newUtility = {
