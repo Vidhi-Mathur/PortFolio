@@ -55,7 +55,7 @@ const libraryAndFrameworkSkills = [
 
 export const Skills = () => {
     return (
-        <>
+        <div className="container mx-auto">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-semibold mt-64">Skills</h1>
             <div className="space-y-8 mt-8">
                     <SkillSection title="Languages and Scripting" skills={langauageAndScriptingSkills} />
@@ -64,7 +64,7 @@ export const Skills = () => {
                     <SkillSection title="Databases" skills={databaseSkills} />
                     <SkillSection title="Developer Tools" skills={developerToolSkills} />
             </div>
-        </>
+        </div>
     )
 }
 
