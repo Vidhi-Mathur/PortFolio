@@ -69,3 +69,14 @@ export const flipVariants = {
         backfaceVisibility: 'hidden' 
     }
 }
+
+export const typewriterVariants = { 
+    hidden: { width: '0%' }, 
+    visible: {
+        width: '100%', 
+        transition: { 
+            duration: 4, 
+            ease: "easeInOut"
+        } 
+    } 
+}
