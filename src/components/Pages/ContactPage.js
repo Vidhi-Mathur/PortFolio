@@ -4,30 +4,64 @@ import LinkedIn from "../../assets/contact/LinkedIn.svg"
 import Gmail from "../../assets/contact/Gmail.svg"
 import X from "../../assets/contact/X.svg"
 import HandshakeEmoji from "../../assets/contact/Handshake.svg"
+import { Alert } from "../UI/Alert"
 
 const contactItems = [
     { icon: LinkedIn, alt: "LinkedIn", link: "https://www.linkedin.com/in/vidhi-mathur-41652128b/" },
     { icon: Gmail, alt: "Gmail", link: "mailto:mathurvidhi2505@gmail.com" },
-    { icon: X, alt: "X", link: "https://twitter.com/Vidhi_Mathur25" },
+    { icon: X, alt: "X", link: "https://twitter.com/Vidhi_Mathur25" }
   ]
   
   export const ContactPage = () => {
     const [openDialog, setDialogOpen] = useState(false)
+    const [error, setError] = useState("")
+    const [success, setSuccess] = useState(false)
 
     const openDialogHandler = () => {
         setDialogOpen(true)
+        setError("")
+        setSuccess(false)
     }
-    const submitHandler = (e) => {
+
+    const submitHandler = async(e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
         const formValues = Object.fromEntries(formData)
-        setDialogOpen(false)
-        console.log(formValues)
+        for (const [key, value] of Object.entries(formValues)) {
+            if (!value.trim()) {
+              setError(`${key.charAt(0).toUpperCase() + key.slice(1)} field cannot be empty.`);
+              return;
+            }
+        }
+
+        try {
+            const response = await fetch(`https://gtform.io/f/${process.env.REACT_APP_UNIQUE_KEY}`, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                  'Accept': 'application/json'  
+                }
+            })
+            if(!response.ok){
+                setError("Failed to submit form. Please try again.")
+                return
+            }
+            setSuccess(true)
+            setError("")
+            e.target.reset()
+            setTimeout(() => {
+                setDialogOpen(false)
+                setSuccess(false)
+            }, 2000)
+        }
+        catch(err) {
+            setError(err.message || "Failed to submit form. Please try again.")
+        }
     }
 
     return (
         <div className="h-screen flex flex-col items-center justify-start pt-20 p-4">
-            <motion.h1  className="flex items-center text-4xl md:text-6xl font-bold text-white mb-4" initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <motion.h1 className="flex items-center text-4xl md:text-6xl font-bold text-white mb-4" initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                 Let's connect <img src={HandshakeEmoji} className="h-[48px] w-[48px] mt-4 ml-3" alt="handshake"/>
             </motion.h1>
             <motion.p className="text-lg md:text-xl text-gray-300 mb-8" initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
@@ -48,22 +82,24 @@ const contactItems = [
                 <motion.div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md flex items-center justify-center z-50" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                     <motion.div className="bg-gray-900 p-8 rounded-lg w-full max-w-md" initial={{ x: '-100%', opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: '100%', opacity: 0 }} transition={{ type: 'spring', stiffness: 300, damping: 30 }}>
                         <h2 className="text-2xl font-bold text-white mb-4">Send Message</h2>
+                        {error && <Alert message={error} type="error" />}
+                        {success && <Alert message="Message sent successfully!" type="success" />}
                         <form className="space-y-4" onSubmit={submitHandler}>
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-400">Name</label>
-                                <input type="text" id="name" name="name" className="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                                <input type="text" id="name" name="name" className="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500" required/>
                             </div>
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-400">Email</label>
-                                <input type="email" id="email" name="email" className="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                                <input type="email" id="email" name="email" className="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500" required/>
                             </div>
                             <div>
                                 <label htmlFor="subject" className="block text-sm font-medium text-gray-400">Subject</label>
-                                <input type="text" id="subject" name="subject" className="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                                <input type="text" id="subject" name="subject" className="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500" required/>
                             </div>
                             <div>
                                 <label htmlFor="message" className="block text-sm font-medium text-gray-400">Message</label>
-                                <textarea id="message" name="message" rows={4} className="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+                                <textarea id="message" name="message" rows={4} className="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500" required></textarea>
                             </div>
                             <div className="flex justify-end space-x-3">
                                 <button type="button" onClick={() => setDialogOpen(false)} className="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition-colors duration-300">
