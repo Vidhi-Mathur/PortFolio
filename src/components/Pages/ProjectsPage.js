@@ -3,6 +3,8 @@ import "slick-carousel/slick/slick-theme.css"
 import { motion } from 'framer-motion'
 import Slider from 'react-slick';
 import { Arrow } from '../UI/Arrow';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const importAll = (r) => r.keys().map(r);
 const eatWaveImages = importAll(require.context('../../assets/projects/EatWave', false, /\.(png|jpe?g|svg)$/));
@@ -62,7 +64,7 @@ export const ProjectsPage = () => {
                             <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
                             <p className="text-purple-300 mb-2">{project.description}</p>
                             <p className="text-sm text-purple-300 mb-4">{project.date}</p>
-                            <div className="mb-4">
+                            <div className="mb-4 relative">
                                 <Slider {...settings}>
                                     {project.images.map((img, i) => (
                                         <div key={i} className="h-64">
@@ -80,11 +82,21 @@ export const ProjectsPage = () => {
                         </div>
                         <div className="mt-auto">
                             <div className="flex justify-between p-4 bg-purple-900/50">
-                                <motion.a href={project.github} className="text-purple-300 hover:text-white transition-colors font-semibold">
-                                    GitHub
+                                <motion.a href={project.github} className="flex items-center space-x-2 group"whileHover={{ scale: 1.05 }}transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                                    <div className="bg-black rounded-full p-2 group-hover:bg-purple-700 transition-colors duration-300">
+                                      <GitHubIcon className="text-purple-300 group-hover:text-white w-6 h-6" />
+                                    </div>
+                                    <span className="text-purple-300 group-hover:text-white transition-colors duration-300 font-semibold">
+                                      GitHub
+                                    </span>
                                 </motion.a>
-                                <motion.a href={project.live} className="text-purple-300 hover:text-white transition-colors font-semibold">
-                                    Live Demo
+                                <motion.a href={project.live} className="flex items-center space-x-2 group"whileHover={{ scale: 1.05 }}transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                                    <div className="bg-black rounded-full p-2 group-hover:bg-purple-700 transition-colors duration-300">
+                                      <OpenInNewIcon className="text-purple-300 group-hover:text-white w-6 h-6" />
+                                    </div>
+                                    <span className="text-purple-300 group-hover:text-white transition-colors duration-300 font-semibold">
+                                      Live Demo
+                                    </span>
                                 </motion.a>
                             </div>
                         </div>
