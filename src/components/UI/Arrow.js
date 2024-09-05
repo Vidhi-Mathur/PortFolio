@@ -1,14 +1,9 @@
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 
-export const Arrow = ({ style, onClick, direction }) => {
+export const Arrow = ({ onClick, direction }) => {
     return (
-        <div className={`slick-arrow block absolute top-1/2 transform -translate-y-1/2 z-10 cursor-pointer ${direction === 'left'? 'left-1': 'right-1'}`} style={style} onClick={onClick}> 
-        {direction === 'left'? (
-            <ArrowBackIos style={{ color: 'black', fontSize: '30px'}}/>
-        ): 
-        (
-            <ArrowForwardIos style={{ color: 'black', fontSize: '30px'}}/>
-        )}
+        <div className={`absolute top-1/2 -translate-y-1/2 z-10 cursor-pointer bg-purple-500 rounded-full w-8 h-8 flex items-center justify-center ${direction === 'left'? 'left-2': 'right-2'}`} onClick={onClick}> 
+        {direction === 'left'? <ArrowBackIos className="text-white text-xl" />: <ArrowForwardIos className="text-white text-xl" />}
         </div>
     )
 }
