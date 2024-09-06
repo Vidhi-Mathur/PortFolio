@@ -70,6 +70,8 @@ export const flipVariants = {
     }
 }
 
+
+//Typewriting effect
 export const typewriterVariants = { 
     hidden: { width: '0%' }, 
     visible: {
@@ -79,4 +81,60 @@ export const typewriterVariants = {
             ease: "easeInOut"
         } 
     } 
+}
+
+//Shatter and assemble effect
+export const shatterPieces = 16
+
+export const shatterVariants = {
+    initial: {
+        opacity: 0
+    },
+    animate: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.02
+        }
+    },
+    exit: {
+        opacity: 0,
+        transition: {
+            staggerChildren: 0.02,
+            staggerDirection: -1
+        }
+    }
+}
+
+export const pieceVariants = {
+    initial: (i) => ({
+        opacity: 0,
+        x: (i % 4 - 1.5) * 50,
+        y: (Math.floor(i / 4) - 1.5) * 50,
+        rotate: Math.random()*360,
+        scale: 0
+    }),
+    animate: {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        rotate: 0, 
+        scale: 1,
+        transition: {
+            type: "spring",
+            stiffness: 200,
+            damping: 20
+        }
+    },
+    exit: (i) => ({
+        opacity: 0,
+        x: (i % 4 - 1.5) * 50,
+        y: (Math.floor(i / 4) - 1.5) * 50,
+        rotate: Math.random()*360,
+        scale: 0,
+        transition: {
+            type: "spring",
+            stiffness: 200,
+            damping: 20
+        }
+    })
 }
