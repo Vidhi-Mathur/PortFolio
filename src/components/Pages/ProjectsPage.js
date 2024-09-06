@@ -5,6 +5,7 @@ import Slider from 'react-slick';
 import { Arrow } from '../UI/Arrow';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import ExpenseTrackerImages from "../../assets/projects/ExpenseTracker.png"
 
 const importAll = (r) => r.keys().map(r);
 const eatWaveImages = importAll(require.context('../../assets/projects/EatWave', false, /\.(png|jpe?g|svg)$/));
@@ -21,6 +22,16 @@ const projects = [
     live: "https://eat-wave.vercel.app/"
   },
   {
+    title: "Expense Tracker",
+    description: "React Expense Management Application",
+    date: "2023",
+    details: "React-based expense tracking application with intuitive UI/UX, allows expense logging, Year wise sorting and filtering. Data visualization of monthly expenses using chart",
+    technologies: ["React", "Chart.js"],
+    images: [ExpenseTrackerImages],
+    github: "https://github.com/Vidhi-Mathur/Expense-Tracker",
+    live: "https://expense-tracker-xi-one.vercel.app/"
+  },
+  {
     title: "MyPlaces",
     description: "Photo Sharing & Location Discovery Application",
     date: "2023",
@@ -30,16 +41,7 @@ const projects = [
     github: "https://github.com/Vidhi-Mathur/My-Places",
     live: "/"
   },
-  {
-    title: "Expense Tracker",
-    description: "React Expense Management Application",
-    date: "2023",
-    details: "React-based expense tracking application with intuitive UI/UX, allows expense logging, Year wise sorting and filtering. Data visualization of monthly expenses using chart",
-    technologies: ["React", "Chart.js"],
-    images: eatWaveImages,
-    github: "https://github.com/Vidhi-Mathur/Expense-Tracker",
-    live: "https://expense-tracker-xi-one.vercel.app/"
-  }
+  
 ]
 
 export const ProjectsPage = () => {
@@ -52,6 +54,28 @@ export const ProjectsPage = () => {
         prevArrow: <Arrow direction="left"/>,
         nextArrow: <Arrow direction="right" />,
     }
+
+    const renderImageContent = (images) => {
+        if(images.length === 1) {
+            return (
+                <div className="h-64">
+                    <img src={images[0]} alt="Project screenshot" className="w-full h-full object-cover"/>
+                </div>
+            )
+        } 
+        else {
+            return (
+                <Slider {...settings}>
+                    {images.map((img, i) => (
+                        <div key={i} className="h-64">
+                            <img src={img} alt={`Project screenshot ${i + 1}`} className="w-full h-full object-cover"/>
+                        </div>
+                    ))}
+                </Slider>
+            )
+        }
+    };
+
     return (
         <div className="min-h-screen text-white p-8">
             <motion.h1 className="text-4xl font-bold mb-8 text-center mt-8" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}transition={{ duration: 0.5 }}>
@@ -65,13 +89,7 @@ export const ProjectsPage = () => {
                             <p className="text-purple-300 mb-2">{project.description}</p>
                             <p className="text-sm text-purple-300 mb-4">{project.date}</p>
                             <div className="mb-4 relative">
-                                <Slider {...settings}>
-                                    {project.images.map((img, i) => (
-                                        <div key={i} className="h-64">
-                                            <img src={img} alt={`${project.title} screenshot ${i + 1}`} className="w-full h-full object-cover"/>
-                                        </div>
-                                    ))}
-                                </Slider>
+                                {renderImageContent(project.images)}
                             </div>
                           <p className="pl-5 mb-4">{project.details}</p>
                           <div className="flex flex-wrap gap-2">
@@ -82,7 +100,7 @@ export const ProjectsPage = () => {
                         </div>
                         <div className="mt-auto">
                             <div className="flex justify-between p-4 bg-purple-900/50">
-                                <motion.a href={project.github} className="flex items-center space-x-2 group"whileHover={{ scale: 1.05 }}transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                                <motion.a href={project.github} className="flex items-center space-x-2 group"whileHover={{ scale: 1.05 }}transition={{ type: "spring", stiffness: 400, damping: 10 }} target="_blank" rel="noopener noreferrer">
                                     <div className="bg-black rounded-full p-2 group-hover:bg-purple-700 transition-colors duration-300">
                                       <GitHubIcon className="text-purple-300 group-hover:text-white w-6 h-6" />
                                     </div>
@@ -90,7 +108,7 @@ export const ProjectsPage = () => {
                                       GitHub
                                     </span>
                                 </motion.a>
-                                <motion.a href={project.live} className="flex items-center space-x-2 group"whileHover={{ scale: 1.05 }}transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                                <motion.a href={project.live} className="flex items-center space-x-2 group" whileHover={{ scale: 1.05 }}transition={{ type: "spring", stiffness: 400, damping: 10 }} target="_blank" rel="noopener noreferrer">
                                     <div className="bg-black rounded-full p-2 group-hover:bg-purple-700 transition-colors duration-300">
                                       <OpenInNewIcon className="text-purple-300 group-hover:text-white w-6 h-6" />
                                     </div>
@@ -104,5 +122,5 @@ export const ProjectsPage = () => {
                 ))}
             </div>
         </div>
-      )
+    )
 }

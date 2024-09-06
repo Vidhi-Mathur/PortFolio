@@ -69,7 +69,7 @@ const contactItems = [
             </motion.p>
             <div className="flex gap-8 items-center justify-center">
                 {contactItems.map((item, index) => (
-                  <motion.a key={item.alt} href={item.link} initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3, delay: index * 0.1 }} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+                  <motion.a key={item.alt} href={item.link} initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3, delay: index * 0.1 }} whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} target="_blank" rel="noopener noreferrer">
                     <img className="w-16 h-16 transition-all duration-300 hover:brightness-125" src={item.icon} alt={item.alt}/>
                   </motion.a>
                 ))}
