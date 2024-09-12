@@ -9,6 +9,7 @@ import ExpenseTrackerImages from "../../assets/projects/ExpenseTracker.png"
 
 const importAll = (r) => r.keys().map(r);
 const eatWaveImages = importAll(require.context('../../assets/projects/EatWave', false, /\.(png|jpe?g|svg)$/));
+const myPlacesImages = importAll(require.context('../../assets/projects/MyPlaces', false, /\.(png|jpe?g|svg)$/));
 
 const projects = [
   {
@@ -22,6 +23,16 @@ const projects = [
     live: "https://eat-wave.vercel.app/"
   },
   {
+    title: "MyPlaces",
+    description: "Photo Sharing & Location Discovery Application",
+    date: "2023",
+    details: "MERN application that enables users to upload, share, and explore location-based photos. The project features secure user authentication, photo upload capabilities, and geolocation tagging. An interactive map interface, allowing users to view and explore shared locations seamlessly",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Geolocation API"],
+    images: myPlacesImages,
+    github: "https://github.com/Vidhi-Mathur/MyPlaces",
+    live: "https://myplacesapp.vercel.app/"
+  },
+  {
     title: "Expense Tracker",
     description: "React Expense Management Application",
     date: "2023",
@@ -30,18 +41,7 @@ const projects = [
     images: [ExpenseTrackerImages],
     github: "https://github.com/Vidhi-Mathur/Expense-Tracker",
     live: "https://expense-tracker-xi-one.vercel.app/"
-  },
-  {
-    title: "MyPlaces",
-    description: "Photo Sharing & Location Discovery Application",
-    date: "2023",
-    details: "MERN application that enables users to upload, share, and explore location-based photos. The project features secure user authentication, photo upload capabilities, and geolocation tagging. An interactive map interface, allowing users to view and explore shared locations seamlessly",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Geolocation API"],
-    images: eatWaveImages,
-    github: "https://github.com/Vidhi-Mathur/My-Places",
-    live: "/"
-  },
-  
+  }
 ]
 
 export const ProjectsPage = () => {

@@ -6,6 +6,7 @@ import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
 import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
 import EatWaveImg from "../../assets/projects/EatWave.png"
 import ExpenseTrackerImg from "../../assets/projects/ExpenseTracker.png"
+import MyPlaceImg from "../../assets/projects/MyPlaces.png"
 
 const projectList = [
     {
@@ -18,7 +19,7 @@ const projectList = [
         name: "MyPlaces",
         intro: "Mock social media application to share geolocation based pictures",
         techUsed: "React.js, Node.js, Express.js, MongoDB, Tailwind CSS",
-        image: EatWaveImg
+        image: MyPlaceImg
     },
     {
         name: "ExpenseTracker",

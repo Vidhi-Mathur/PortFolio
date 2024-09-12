@@ -27,7 +27,7 @@ export const AboutPage = () => {
                         </motion.a>
                     </motion.div>
                     <motion.div className="md:w-1/3" initial={{ x: 100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}>
-                        <img src={GitHub} className="w-full h-auto min-w-52 max-w-72 sm:max-w-xs mx-auto" alt="GitHub"/>
+                        <motion.img src={`${process.env.REACT_APP_PROFILE_URL}`} className="border border-purple-500 w-full h-auto min-w-52 max-w-72 sm:max-w-xs mx-auto rounded-2xl" alt="profile" whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(147, 51, 234, 0.5)", transition: { duration: 0.3 }}}/>
                     </motion.div>
                 </div>
                 <motion.h2 className="text-4xl md:text-6xl font-bold mb-12 text-center relative"initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}>
