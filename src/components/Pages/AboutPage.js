@@ -5,8 +5,8 @@ import LeetCode from "../../assets/about/LeetCode.svg"
 
 const aboutItems = [
     { icon: GitHub, alt: "GitHub", link: "https://github.com/Vidhi-Mathur" },
-    { icon: LeetCode, alt: "LeetCode", link: "https://leetcode.com/u/VidhiMathur/" },
     { icon: GeeksFromGeeks, alt: "GeeksForGeeks", link: "https://www.geeksforgeeks.org/user/mathurvidhi/" },
+    { icon: LeetCode, alt: "LeetCode", link: "https://leetcode.com/u/VidhiMathur/" },
 ]
 
 export const AboutPage = () => {
@@ -36,7 +36,7 @@ export const AboutPage = () => {
                     </span>
                     <span className="sr-only">Check my profiles</span>
                 </motion.h2>
-                <motion.div className="flex gap-8 items-center justify-center flex-wrap" initial="hidden" animate="visible" variants={{    hidden: { opacity: 0 }, visible: { opacity: 1, transition: { delayChildren: 0.3, staggerChildren: 0.2 }}}}>
+                <motion.div className="flex gap-8 items-center justify-center flex-wrap mb-16" initial="hidden" animate="visible" variants={{    hidden: { opacity: 0 }, visible: { opacity: 1, transition: { delayChildren: 0.3, staggerChildren: 0.2 }}}}>
                     {aboutItems.map(about => (
                         <motion.a key={about.alt} href={about.link} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center"variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 }}} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                             <motion.div className="w-24 h-24 md:w-32 md:h-32 rounded-full flex items-center justify-center overflow-hidden" whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
