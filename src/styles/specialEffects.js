@@ -74,14 +74,28 @@ export const flipVariants = {
 
 //Typewriting effect
 export const typewriterVariants = { 
-    hidden: { width: '0%' }, 
-    visible: {
-        width: '100%', 
-        transition: { 
-            duration: 4, 
-            ease: "easeInOut"
-        } 
-    } 
+    container: {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.05,
+                delayChildren: 0.5
+            }
+        }
+      },
+    child: {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                damping: 12,
+                stiffness: 200
+            }
+        }
+    }
 }
 
 //Shatter and assemble effect

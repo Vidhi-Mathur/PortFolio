@@ -55,7 +55,7 @@ export const ProjectInfo = () => {
     }
 
     return (
-        <div className="container mx-auto px-4 sm:px-6">
+        <div className="container mx-auto px-4 sm:px-6 text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-semibold mt-12 sm:mt-24 md:mt-36 mb-8 sm:mb-16 md:mb-24">My Projects</h1>
             <div className="flex flex-col lg:flex-row justify-between items-start space-y-8 lg:space-y-0 lg:space-x-8">
                 <AnimatePresence mode="wait">

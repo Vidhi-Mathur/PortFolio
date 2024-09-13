@@ -58,7 +58,7 @@ export const ProjectsPage = () => {
     const renderImageContent = (images) => {
         if(images.length === 1) {
             return (
-                <div className="h-64">
+                <div className="h-48 sm:h-64">
                     <img src={images[0]} alt="Project screenshot" className="w-full h-full object-cover"/>
                 </div>
             )
@@ -67,7 +67,7 @@ export const ProjectsPage = () => {
             return (
                 <Slider {...settings}>
                     {images.map((img, i) => (
-                        <div key={i} className="h-64">
+                        <div key={i} className="h-48 sm:h-64">
                             <img src={img} alt={`Project screenshot ${i + 1}`} className="w-full h-full object-cover"/>
                         </div>
                     ))}
@@ -77,24 +77,24 @@ export const ProjectsPage = () => {
     };
 
     return (
-        <div className="min-h-screen text-white p-8">
-            <motion.h1 className="text-4xl font-bold mb-8 text-center mt-8" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}transition={{ duration: 0.5 }}>
+        <div className="min-h-screen text-white p-4 sm:p-8">
+            <motion.h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8 mt-4 sm:mt-8" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}transition={{ duration: 0.5 }}>
                 This is what I have created till now
             </motion.h1>
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
                 {projects.map((project, index) => (
-                    <motion.div  key={index} className="bg-black/50 border border-purple-500 rounded-lg overflow-hidden flex flex-col m-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} whileHover={{ scale: 1.05,  boxShadow: "0 0 20px rgba(147, 51, 234, 0.5)", transition: { duration: 0.3 }}} >
-                        <div className="p-6 flex-grow">
-                            <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
-                            <p className="text-purple-300 mb-2">{project.description}</p>
+                   <motion.div key={index} className="bg-black/50 border border-purple-500 rounded-lg overflow-hidden flex flex-col" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} whileHover={{ scale: 1.05,  boxShadow: "0 0 20px rgba(147, 51, 234, 0.5)", transition: { duration: 0.3 }}} >
+                        <div className="p-4 sm:p-6 flex-grow">
+                        <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
+                            <p className="text-md text-purple-300 mb-2">{project.description}</p>
                             <p className="text-sm text-purple-300 mb-4">{project.date}</p>
                             <div className="mb-4 relative">
                                 {renderImageContent(project.images)}
                             </div>
-                          <p className="pl-5 mb-4">{project.details}</p>
+                          <p className="text-sm sm:text-base mb-3 sm:mb-4">{project.details}</p>
                           <div className="flex flex-wrap gap-2">
                             {project.technologies.map((tech, i) => (
-                                <span key={i} className="bg-purple-950 text-white text-xs px-3 py-1 rounded-full">{tech}</span>
+                                <span key={i} className="bg-purple-950 text-white text-xs px-2 sm:px-3 py-1 rounded-full">{tech}</span>
                             ))}
                           </div>
                         </div>
@@ -102,15 +102,15 @@ export const ProjectsPage = () => {
                             <div className="flex justify-between p-4 bg-purple-900/50">
                                 <motion.a href={project.github} className="flex items-center space-x-2 group"whileHover={{ scale: 1.05 }}transition={{ type: "spring", stiffness: 400, damping: 10 }} target="_blank" rel="noopener noreferrer">
                                     <div className="bg-black rounded-full p-2 group-hover:bg-purple-700 transition-colors duration-300">
-                                      <GitHubIcon className="text-purple-300 group-hover:text-white w-6 h-6" />
+                                      <GitHubIcon className="text-purple-300 group-hover:text-white w-4 h-4 sm:w-6 sm:h-6" />
                                     </div>
                                     <span className="text-purple-300 group-hover:text-white transition-colors duration-300 font-semibold">
                                       GitHub
                                     </span>
                                 </motion.a>
-                                <motion.a href={project.live} className="flex items-center space-x-2 group" whileHover={{ scale: 1.05 }}transition={{ type: "spring", stiffness: 400, damping: 10 }} target="_blank" rel="noopener noreferrer">
-                                    <div className="bg-black rounded-full p-2 group-hover:bg-purple-700 transition-colors duration-300">
-                                      <OpenInNewIcon className="text-purple-300 group-hover:text-white w-6 h-6" />
+                                <motion.a href={project.live} className="flex items-center space-x-1 sm:space-x-2 group" whileHover={{ scale: 1.05 }}transition={{ type: "spring", stiffness: 400, damping: 10 }} target="_blank" rel="noopener noreferrer">
+                                    <div className="bg-black rounded-full p-2 group-hover:bg-purple-700 transition-colors duration-300 ">
+                                      <OpenInNewIcon className="text-purple-300 group-hover:text-white w-4 h-4 sm:w-6 sm:h-6" />
                                     </div>
                                     <span className="text-purple-300 group-hover:text-white transition-colors duration-300 font-semibold">
                                       Live Demo
