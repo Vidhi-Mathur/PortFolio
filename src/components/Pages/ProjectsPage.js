@@ -27,7 +27,7 @@ const projects = [
     description: "Photo Sharing & Location Discovery Application",
     date: "2023",
     details: "MERN application that enables users to upload, share, and explore location-based photos. The project features secure user authentication, photo upload capabilities, and geolocation tagging. An interactive map interface, allowing users to view and explore shared locations seamlessly",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Geolocation API"],
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Geolocation API", "JWT", "Bcrypt", "Multer", "Cloudinary"],
     images: myPlacesImages,
     github: "https://github.com/Vidhi-Mathur/MyPlaces",
     live: "https://myplacesapp.vercel.app/"
@@ -40,7 +40,7 @@ const projects = [
     technologies: ["React", "Chart.js"],
     images: [ExpenseTrackerImages],
     github: "https://github.com/Vidhi-Mathur/Expense-Tracker",
-    live: "https://expense-tracker-xi-one.vercel.app/"
+    live: "https://yourexpensetracker.vercel.app/"
   }
 ]
 
