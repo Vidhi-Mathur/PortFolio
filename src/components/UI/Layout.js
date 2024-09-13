@@ -25,7 +25,7 @@ const NavigationBar = () => {
 
     return (
         <>
-            <button onClick={toggleNavigationBar} className="fixed right-8 top-12 md:hidden" ><MenuIcon sx={{ color: 'white', fontSize: 28 }} /></button>
+            <button onClick={toggleNavigationBar} className="fixed right-8 top-12 md:hidden z-10" ><MenuIcon sx={{ color: 'white', fontSize: 28 }} /></button>
             {/* Small screen */}
             <nav className={`fixed top-0 left-0 w-full h-full bg-black text-white rounded-lg bg-opacity-50 backdrop-blur-md transform ${isOpen? 'translate-x-0': 'translate-x-full'} transition-transform duration-300 ease-in-out md:hidden flex justify-center items-center z-20`}>
                 <div className="flex flex-col items-center space-y-8 mb-56">
