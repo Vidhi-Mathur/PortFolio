@@ -18,7 +18,7 @@ export const ScrollArrow = () => {
     }
 
     return (
-    <motion.div className="mt-16 cursor-pointer" onClick={scrollToSkills} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+    <motion.div className="mt-16 cursor-pointer hidden sm:block" onClick={scrollToSkills} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
         {isVisible && (
             <motion.svg width="50" height="50" viewBox="0 0 60 60" initial="hidden" animate="visible">
               <motion.circle cx="30" cy="30" r="28" stroke="#9374e8" strokeWidth="2" fill="none" variants={drawVariants} custom={0} />
