@@ -5,11 +5,11 @@ import Slider from 'react-slick';
 import { Arrow } from '../UI/Arrow';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import ExpenseTrackerImages from "../../assets/projects/ExpenseTracker.png"
 
 const importAll = (r) => r.keys().map(r);
 const eatWaveImages = importAll(require.context('../../assets/projects/EatWave', false, /\.(png|jpe?g|svg)$/));
 const myPlacesImages = importAll(require.context('../../assets/projects/MyPlaces', false, /\.(png|jpe?g|svg)$/));
+const expenseTrackerImages = importAll(require.context('../../assets/projects/ExpenseTracker', false, /\.(png|jpe?g|svg)$/));
 
 const projects = [
   {
@@ -38,7 +38,7 @@ const projects = [
     date: "2023",
     details: "React-based expense tracking application with intuitive UI/UX, allows expense logging, Year wise sorting and filtering. Data visualization of monthly expenses using chart",
     technologies: ["React", "Chart.js"],
-    images: [ExpenseTrackerImages],
+    images: expenseTrackerImages,
     github: "https://github.com/Vidhi-Mathur/Expense-Tracker",
     live: "https://yourexpensetracker.vercel.app/"
   }
@@ -56,30 +56,21 @@ export const ProjectsPage = () => {
     }
 
     const renderImageContent = (images) => {
-        if(images.length === 1) {
-            return (
-                <div className="h-48 sm:h-64">
-                    <img src={images[0]} alt="Project screenshot" className="w-full h-full object-cover"/>
-                </div>
-            )
-        } 
-        else {
-            return (
-                <Slider {...settings}>
-                    {images.map((img, i) => (
-                        <div key={i} className="h-48 sm:h-64">
-                            <img src={img} alt={`Project screenshot ${i + 1}`} className="w-full h-full object-cover"/>
-                        </div>
-                    ))}
-                </Slider>
-            )
-        }
+        return (
+            <Slider {...settings}>
+                {images.map((img, i) => (
+                    <div key={i} className="h-48 sm:h-64">
+                        <img src={img} alt={`Project screenshot ${i + 1}`} className="w-full h-full object-cover"/>
+                    </div>
+                ))}
+            </Slider>
+        )
     };
 
     return (
-        <div className="min-h-screen text-white p-4 sm:p-8">
+        <div className="min-h-screen text-white p-4 sm:p-8 space-y-12">
             <motion.h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8 mt-4 sm:mt-8" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}transition={{ duration: 0.5 }}>
-                This is what I have created till now
+            Featured Works: Projects That Define Me
             </motion.h1>
             <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
                 {projects.map((project, index) => (
