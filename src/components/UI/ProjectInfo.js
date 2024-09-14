@@ -69,7 +69,7 @@ export const ProjectInfo = () => {
                             </div>
                         </div>
                         <div className="p-6 font-mono text-sm">
-                            <p className="text-green-800 dark:text-green-300 mb-2">//Click to see next, many more in "/projects"!</p>
+                            <p className="text-green-800 dark:text-green-300 mb-2">//Click to see next, more details in "/projects"!</p>
                             <p className="text-[#0366d6] dark:text-[#569cd6] mb-2">
                                 const <span className="text-[#005cc5] dark:text-[#4fc1ff]">{projectList[currIdx].name}</span> = <span className="text-[#005cc5] dark:text-[#ffbd44]">{'{'}</span>
                             </p>
