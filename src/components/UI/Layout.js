@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import Logo from "../../assets/logo.svg";
 import MenuIcon from '@mui/icons-material/Menu';
@@ -7,7 +7,9 @@ export const Layout = ({ children }) => {
     return (
         <div className="relative h-screen overflow-hidden">
             <div className="fixed inset-0 -z-10 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
-                <img src={Logo} alt="V Symbol" className="w-12 h-12 sm:h-16 sm:w-16 absolute top-10 left-8 sm:top-8 sm:left-8 z-10"/>
+                <Link to="/">
+                    <img src={Logo} alt="V Symbol" className="w-12 h-12 sm:h-16 sm:w-16 absolute top-10 left-8 sm:top-8 sm:left-8 z-10"/>
+                </Link>
                 <NavigationBar />
                 <div className="h-full overflow-y-auto px-5 py-24 hide-scrollbar">
                     {children}
