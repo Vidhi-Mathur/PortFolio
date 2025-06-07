@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion'
 import GitHub from "../../assets/about/GitHub.svg"
-import GeeksFromGeeks from "../../assets/about/GeeksForGeeks.png"
+import GeeksFromGeeks from "../../assets/about/GeeksForGeeks.svg"
 import LeetCode from "../../assets/about/LeetCode.svg"
+import CodeOrbit from "../../assets/about/CodeOrbit.png"
 
 const aboutItems = [
     { icon: GitHub, alt: "GitHub", link: "https://github.com/Vidhi-Mathur" },
-    { icon: GeeksFromGeeks, alt: "GeeksForGeeks", link: "https://www.geeksforgeeks.org/user/mathurvidhi/" },
+    { icon: CodeOrbit, alt: "CodeOrbit", link: "https://codeorbit-coral.vercel.app/profile/vidhi_mathur"},
     { icon: LeetCode, alt: "LeetCode", link: "https://leetcode.com/u/VidhiMathur/" },
+    { icon: GeeksFromGeeks, alt: "GeeksForGeeks", link: "https://www.geeksforgeeks.org/user/mathurvidhi/" },
 ]
 
 export const AboutPage = () => {

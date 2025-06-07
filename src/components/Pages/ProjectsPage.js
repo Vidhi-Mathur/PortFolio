@@ -9,15 +9,26 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 const importAll = (r) => r.keys().map(r);
 const eatWaveImages = importAll(require.context('../../assets/projects/EatWave', false, /\.(png|jpe?g|svg)$/));
 const myPlacesImages = importAll(require.context('../../assets/projects/MyPlaces', false, /\.(png|jpe?g|svg)$/));
-const expenseTrackerImages = importAll(require.context('../../assets/projects/ExpenseTracker', false, /\.(png|jpe?g|svg)$/));
+const codeOrbitImages = importAll(require.context('../../assets/projects/CodeOrbit', false, /\.(png|jpe?g|svg)$/));
 
 const projects = [
+    {
+    title: "CodeOrbit",
+    description: "Developer Portfolio Tracker",
+    date: "May 2025 - Present",
+    details: "A personalized portfolio tracker tailored for developers, aggregating data from coding platforms like GitHub and LeetCode. It visualizes developer activity with insightful dashboards, supports OAuth login, and uses both REST and GraphQL APIs for optimized data handling. Designed to showcase a developer’s true coding footprint in a clean, visual format.",
+    technologies: [ "Next.js", "TypeScript", "MongoDB", "Tailwind CSS", "NextAuth", "Bcrytjs", "GraphQL", "REST API"],
+    images: codeOrbitImages,
+    github: "https://github.com/Vidhi-Mathur/CodeOrbit",
+    live: "https://codeorbit-coral.vercel.app/",
+    additionalProfileLink: "https://codeorbit-coral.vercel.app/profile/vidhi_mathur"
+  },
   {
     title: "EatWave",
     description: "Food Ordering Application",
     date: "May 2024 - Present",
     details: "A full-fledged, responsive MERN based food delivery application, which streamlines restaurant, menu, cart, and order management. The application is designed with both the restaurant and consumer perspectives in mind. Users can add their own restaurants, complete with menus, cuisine details, and more. Consumers can view restaurant information, including photos, reviews, and menus, and track their orders in real-time. After completing an order, they can post reviews as well. This is SPA and incorporates optimization techniques like debouncing, memoization, and lazy loading.",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "JWT", "Bcrypt", "Razorpay", "Multer", "Cloudinary", "Socket.io"],
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "JWT", "Bcryptjs", "Razorpay", "Multer", "Cloudinary", "Socket.io"],
     images: eatWaveImages,
     github: "https://github.com/Vidhi-Mathur/EatWave",
     live: "https://eat-wave.vercel.app/"
@@ -27,20 +38,10 @@ const projects = [
     description: "Photo Sharing & Location Discovery Application",
     date: "2023",
     details: "MERN application that enables users to upload, share, and explore location-based photos. The project features secure user authentication, photo upload capabilities, and geolocation tagging. An interactive map interface, allowing users to view and explore shared locations seamlessly",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Geolocation API", "JWT", "Bcrypt", "Multer", "Cloudinary"],
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Geolocation API", "JWT", "Bcryptjs", "Multer", "Cloudinary"],
     images: myPlacesImages,
     github: "https://github.com/Vidhi-Mathur/MyPlaces",
     live: "https://myplacesapp.vercel.app/"
-  },
-  {
-    title: "Expense Tracker",
-    description: "React Expense Management Application",
-    date: "2023",
-    details: "React-based expense tracking application with intuitive UI/UX, allows expense logging, Year wise sorting and filtering. Data visualization of monthly expenses using chart",
-    technologies: ["React", "Chart.js"],
-    images: expenseTrackerImages,
-    github: "https://github.com/Vidhi-Mathur/Expense-Tracker",
-    live: "https://yourexpensetracker.vercel.app/"
   }
 ]
 
@@ -83,6 +84,13 @@ export const ProjectsPage = () => {
                                 {renderImageContent(project.images)}
                             </div>
                           <p className="text-sm sm:text-base mb-3 sm:mb-4">{project.details}</p>
+                          {project.additionalProfileLink && (
+                            <div className="mb-4">
+                                    <motion.a href={project.additionalProfileLink} target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-200 underline decoration-purple-400 hover:decoration-purple-200 transition-colors duration-300 text-sm font-medium" whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                                        Explore my CodeOrbit profile here!
+                                    </motion.a>
+                                </div>
+                            )}
                           <div className="flex flex-wrap gap-2">
                             {project.technologies.map((tech, i) => (
                                 <span key={i} className="bg-purple-950 text-white text-xs px-2 sm:px-3 py-1 rounded-full">{tech}</span>

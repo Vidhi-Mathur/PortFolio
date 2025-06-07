@@ -4,11 +4,17 @@ import { flipVariants, pieceVariants, shatterPieces, shatterVariants } from "../
 import { IconButton } from "@mui/material";
 import LightModeTwoToneIcon from '@mui/icons-material/LightModeTwoTone';
 import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
+import CodeOrbitImg from "../../assets/projects/CodeOrbit.png"
 import EatWaveImg from "../../assets/projects/EatWave.png"
-import ExpenseTrackerImg from "../../assets/projects/ExpenseTracker.png"
 import MyPlaceImg from "../../assets/projects/MyPlaces.png"
 
 const projectList = [
+    {
+        name: "CodeOrbit",
+        intro: "A developer portfolio tracker that visualizes coding activity and profiles",
+        techUsed: "Next.js, TypeScript, MongoDB, Tailwind CSS, NextAuth",
+        image: CodeOrbitImg,
+    },
     {
         name: "Eatwave",
         intro: "A full-fledged food delivery application",
@@ -20,12 +26,6 @@ const projectList = [
         intro: "Mock social media application to share geolocation based pictures",
         techUsed: "React.js, Node.js, Express.js, MongoDB, Tailwind CSS",
         image: MyPlaceImg
-    },
-    {
-        name: "ExpenseTracker",
-        intro: "Intuitive expense tracker to track, and filter your daily expenses",
-        techUsed: "React.js, Tailwind CSS",
-        image: ExpenseTrackerImg
     }
 ]
 
