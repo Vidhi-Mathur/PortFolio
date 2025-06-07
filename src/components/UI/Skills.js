@@ -16,6 +16,12 @@ import SocketIO from "../../assets/skills/SocketIO.svg"
 import MongoDB from "../../assets/skills/MongoDB.svg"
 import Git from "../../assets/skills/Git.svg"
 import Postman from "../../assets/skills/Postman.svg"
+import Docker from "../../assets/skills/Docker.svg"
+import PostgreSQL from "../../assets/skills/Postgresql.svg"
+import Prisma from "../../assets/skills/Prisma.svg"
+import Mongoose from "../../assets/skills/Mongoose.svg"
+import Shadcn from "../../assets/skills/Shadcn.svg"
+import Typescript from "../../assets/skills/Typescript.svg"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { elasticVariants } from "../../styles/specialEffects"
@@ -24,6 +30,7 @@ const langauageAndScriptingSkills = [
     { name: 'HTML', icon: HTML },
     { name: 'CSS', icon: CSS},
     { name: 'Javascript', icon: Javascript},
+    { name: 'Typecript', icon: Typescript},
     { name: 'Java', icon: Java},
 ]
 
@@ -34,6 +41,7 @@ const libraryAndFrameworkSkills = [
     { name: 'Redux', icon: Redux },
     { name: 'NextJS', icon: NextJS },
     { name: 'Material UI', icon: MaterialUI},
+    { name: 'Shadcn', icon: Shadcn},
     { name: 'Tailwind CSS', icon: TailwindCSS},
     { name: 'Framer Motion', icon: FramerMotion },
 ]
@@ -45,12 +53,16 @@ const libraryAndFrameworkSkills = [
 ]
 
  const databaseSkills = [
-    { name: 'MongoDB', icon: MongoDB}
+    { name: 'MongoDB', icon: MongoDB},
+    { name: 'Mongoose', icon: Mongoose},
+    { name: 'PostgreSQL', icon: PostgreSQL},
+    { name: 'Prisma', icon: Prisma}
 ]
 
  const developerToolSkills = [
     { name: 'Version Control', icon: Git},
-    { name: 'Postman', icon: Postman}
+    { name: 'Postman', icon: Postman},
+    { name: 'Docker', icon: Docker}
 ]
 
 export const Skills = () => {
