@@ -19,10 +19,13 @@ export const AboutPage = () => {
                     <motion.div className="md:w-1/2 mb-8 md:mb-0" initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8, ease: "easeOut" }}>
                     <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">Glad we met!</h1>
                         <p className="text-lg leading-relaxed">
-                            Hi, I'm Vidhi—an enthusiastic web developer with a passion for building engaging and responsive applications. I combine technical expertise with creative problem-solving to deliver efficient, secure, and impactful digital solutions.
+                        Hi, I'm Vidhi — a full-stack web developer passionate about building scalable and user-focused web applications. I enjoy working across the stack, combining clean frontend interfaces with efficient backend systems to create reliable and maintainable software.
                         </p>
                         <p className="text-lg leading-relaxed">
-                            My recent projects demonstrate my proficiency in JavaScript, React.js, Node.js, and more.
+                        I primarily work with modern technologies like Next.js, Node.js, and TypeScript, and I enjoy exploring system design concepts such as API architecture, performance optimization, and scalable application structure.
+                        </p>
+                        <p className="text-lg leading-relaxed">
+                            Alongside development, I enjoy strengthening my problem solving skills through data structures and algorithms, and currently hold the <span className="text-purple-400 font-semibold">LeetCode Knight</span> badge with a peak contest rating of <span className="text-purple-400 font-semibold">1950</span>.
                         </p>
                         <motion.a whileHover={{ scale: 1.1, backgroundColor: "#8B5CF6" }} href="https://drive.google.com/file/d/1O3Ae16s-cCD-zbGtgbgcxItU0JjOvxSz/view?usp=drive_link" className="mt-6 cursor-pointer bg-purple-600 text-xl font-semibold py-1.5 rounded flex items-center justify-center w-48" target="_blank" rel="noopener noreferrer">
                             View Resume

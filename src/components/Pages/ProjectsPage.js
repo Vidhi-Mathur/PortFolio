@@ -14,10 +14,10 @@ const codeOrbitImages = importAll(require.context('../../assets/projects/CodeOrb
 const projects = [
     {
     title: "CodeOrbit",
-    description: "Developer Portfolio Tracker",
+    description: "Developer Analytics Platform",
     date: "May 2025 - Present",
-    details: "A personalized portfolio tracker tailored for developers, aggregating data from coding platforms like GitHub and LeetCode. It visualizes developer activity with insightful dashboards, supports OAuth login, and uses both REST and GraphQL APIs for optimized data handling. Designed to showcase a developer’s true coding footprint in a clean, visual format.",
-    technologies: [ "Next.js", "TypeScript", "MongoDB", "Tailwind CSS", "NextAuth", "Bcrytjs", "GraphQL", "REST API"],
+    details: "A performance-optimized developer analytics platform that aggregates and visualizes coding activity from platforms like GitHub, LeetCode, and Codeforces into a unified developer profile. The platform integrates multiple external APIs to fetch developer metrics, submission calendars, and repository activity. It implements layered caching using Next.js server cache and TanStack React Query, along with year-based lazy loading to reduce API fan-out and improve performance. Additional infrastructure includes Redis-based rate limiting for controlled refresh operations and secure OAuth authentication.",
+    technologies: ["Next.js", "TypeScript", "MongoDB", "Tailwind CSS", "NextAuth", "TanStack Query", "Redis (Upstash)", "GraphQL", "REST API"],
     images: codeOrbitImages,
     github: "https://github.com/Vidhi-Mathur/CodeOrbit",
     live: "https://codeorbit-coral.vercel.app/",
@@ -26,7 +26,7 @@ const projects = [
   {
     title: "EatWave",
     description: "Food Ordering Application",
-    date: "May 2024 - Present",
+    date: "May 2024 - Oct 2024",
     details: "A full-fledged, responsive MERN based food delivery application, which streamlines restaurant, menu, cart, and order management. The application is designed with both the restaurant and consumer perspectives in mind. Users can add their own restaurants, complete with menus, cuisine details, and more. Consumers can view restaurant information, including photos, reviews, and menus, and track their orders in real-time. After completing an order, they can post reviews as well. This is SPA and incorporates optimization techniques like debouncing, memoization, and lazy loading.",
     technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "JWT", "Bcryptjs", "Razorpay", "Multer", "Cloudinary", "Socket.io"],
     images: eatWaveImages,

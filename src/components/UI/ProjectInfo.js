@@ -11,19 +11,19 @@ import MyPlaceImg from "../../assets/projects/MyPlaces.png"
 const projectList = [
     {
         name: "CodeOrbit",
-        intro: "A developer portfolio tracker that visualizes coding activity and profiles",
-        techUsed: "Next.js, TypeScript, MongoDB, Tailwind CSS, NextAuth",
+        intro: "Developer analytics platform aggregating coding activity from GitHub, LeetCode, and Codeforces",
+        techUsed: "Next.js, TypeScript, MongoDB, TanStack Query, Redis (Upstash)",
         image: CodeOrbitImg,
     },
     {
-        name: "Eatwave",
-        intro: "A full-fledged food delivery application",
+        name: "EatWave",
+        intro: "Full-fledged food delivery platform with authentication, payments, and real-time order tracking",
         techUsed: "React.js, Node.js, Express.js, MongoDB, Tailwind CSS",
         image: EatWaveImg
     },
     {
         name: "MyPlaces",
-        intro: "Mock social media application to share geolocation based pictures",
+        intro: "Location-based photo sharing platform with geolocation and secure authentication",
         techUsed: "React.js, Node.js, Express.js, MongoDB, Tailwind CSS",
         image: MyPlaceImg
     }
@@ -59,7 +59,7 @@ export const ProjectInfo = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-semibold mt-12 sm:mt-24 md:mt-36 mb-8 sm:mb-16 md:mb-24">My Projects</h1>
             <div className="flex flex-col lg:flex-row justify-between items-start space-y-8 lg:space-y-0 lg:space-x-8">
                 <AnimatePresence mode="wait">
-                    <motion.div key={projectList[currIdx].name} initial={flipVariants.initial} animate={flipVariants.animate} exit={flipVariants.exit} transition={flipVariants.transition} style={flipVariants.style} className="bg-white dark:bg-[#1e1e1e] rounded-lg overflow-hidden shadow-lg w-full lg:w-6/12 h-auto lg:h-96" onClick={nextProjectHandler}>
+                    <motion.div key={projectList[currIdx].name} initial={flipVariants.initial} animate={flipVariants.animate} exit={flipVariants.exit} transition={flipVariants.transition} style={flipVariants.style} className="bg-white dark:bg-[#1e1e1e] rounded-lg overflow-hidden shadow-lg w-full lg:w-6/12 h-auto lg:h-[436px]" onClick={nextProjectHandler}>
                         <div className="bg-[#f0f0f0] dark:bg-[#323233] px-4 py-2 flex items-center justify-between">
                             <span className="text-[#333] dark:text-[#cccccc] font font-medium">{projectList[currIdx].name}.js</span>
                             <div className="flex space-x-2">
@@ -69,7 +69,7 @@ export const ProjectInfo = () => {
                             </div>
                         </div>
                         <div className="p-6 font-mono text-sm">
-                            <p className="text-green-800 dark:text-green-300 mb-2">//Click to see next, more details in "/projects"!</p>
+                            <p className="text-green-800 dark:text-green-300 mb-2">{`// Click to see next project — full details in "/projects"`}</p>
                             <p className="text-[#0366d6] dark:text-[#569cd6] mb-2">
                                 const <span className="text-[#005cc5] dark:text-[#4fc1ff]">{projectList[currIdx].name}</span> = <span className="text-[#005cc5] dark:text-[#ffbd44]">{'{'}</span>
                             </p>
